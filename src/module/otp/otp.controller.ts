@@ -1,4 +1,11 @@
-import { Body, Controller, Logger, Post, Version } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Logger,
+  Post,
+  UseGuards,
+  Version,
+} from '@nestjs/common';
 import {
   BodySendEmailOtpDtoRequest,
   SendEmailOtpDtoResponse,
@@ -10,7 +17,9 @@ import {
   VerifyEmailOtpDtoResponse,
 } from './dto/verify-email-otp.dto';
 import { BaseResponse } from 'src/type/response.type';
+import { ApiKeyGuard } from 'src/guard/api-key.guard';
 
+@UseGuards(ApiKeyGuard)
 @Controller('otp')
 export class OtpController {
   private logger: Logger = new Logger(OtpController.name);
