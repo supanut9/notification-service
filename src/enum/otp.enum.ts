@@ -1,0 +1,7 @@
+export enum OtpErrorCode {
+    OTP_NOT_FOUND = 'OTP_NOT_FOUND',
+    OTP_EXPIRED = 'OTP_EXPIRED',
+    OTP_INVALID = 'OTP_INVALID',
+    OTP_ALREADY_USED = 'OTP_ALREADY_USED',
+  }
+  

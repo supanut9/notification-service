@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { EmailOtpTransactionEntity } from 'src/module/data-access-layer/email-otp-transaction/email-otp-transaction.entity';
 
 @Injectable()
 export class DatabaseConfig implements TypeOrmOptionsFactory {
@@ -20,7 +21,7 @@ export class DatabaseConfig implements TypeOrmOptionsFactory {
       extra: {
         connectionLimit: this.configService.get<number>('DB_CON_LIMIT', 20),
       },
-      entities: [],
+      entities: [EmailOtpTransactionEntity],
       timezone: 'Z',
     } as TypeOrmModuleOptions;
   }
