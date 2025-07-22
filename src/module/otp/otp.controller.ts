@@ -1,6 +1,8 @@
 import {
   Body,
   Controller,
+  HttpCode,
+  HttpStatus,
   Logger,
   Post,
   UseGuards,
@@ -30,6 +32,7 @@ export class OtpController {
   ) {}
 
   @Post('email/send-otp')
+  @HttpCode(HttpStatus.OK)
   @Version('1')
   async sendEmailOTP(
     @Body() body: BodySendEmailOtpDtoRequest,
@@ -38,6 +41,7 @@ export class OtpController {
   }
 
   @Post('email/verify-otp')
+  @HttpCode(HttpStatus.OK)
   @Version('1')
   async verifyEmailOTP(
     @Body() body: BodyVerifyEmailOtpDtoRequest,
